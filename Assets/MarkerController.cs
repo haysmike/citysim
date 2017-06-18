@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
 public class MarkerController : MonoBehaviour {
-    public Transform marker;
     public Collider coll;
 
     private Renderer rend;
 
     void Start() {
-        rend = marker.GetComponent<Renderer>();
+        rend = GetComponent<Renderer>();
     }
 
     void Update() {
@@ -15,7 +14,7 @@ public class MarkerController : MonoBehaviour {
         RaycastHit hit;
         if (coll.Raycast(ray, out hit, 2000)) {
             Vector3 pos = ray.GetPoint(hit.distance);
-            marker.position = pos;
+            transform.position = pos;
             if (pos.y > 0) {
                 rend.material.color = Color.white;
             } else {
