@@ -2,6 +2,7 @@
 
 public class CameraController : MonoBehaviour {
     public float speed;
+    public float scrollSensitivity;
 
     private Rigidbody rb;
 
@@ -10,12 +11,10 @@ public class CameraController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rb.AddForce(movement * speed);
-
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        Camera.main.fieldOfView -= 20 * scroll;
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+        float moveForward = Input.GetAxis("Mouse ScrollWheel");
+        Vector3 movement = new Vector3(moveX, 0.0f, moveZ) + scrollSensitivity * transform.forward * moveForward;
+        rb.AddForce(speed * movement);
     }
 }
