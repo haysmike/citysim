@@ -31,6 +31,7 @@ public class MarkerController : MonoBehaviour {
             cube.transform.localScale = transform.localScale;
             Renderer cubeRend = cube.GetComponent<Renderer>();
             cubeRend.material.CopyPropertiesFromMaterial(rend.material);
+            cubeRend.material.color = Random.ColorHSV();
         }
     }
 }
