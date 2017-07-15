@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 using com.heparo.terrain.toolkit;
@@ -26,7 +25,7 @@ public class TerrainController : MonoBehaviour {
         //     Debug.Log("Setting height blend points");
         //     toolkit.heightBlendPoints = new List<float>();
         // }
-        toolkit.setPerlinPreset(new TerrainToolkit.perlinPresetData("", 7, 0.5f, 4, 1.0f));
+        toolkit.setPerlinPreset(new TerrainToolkit.perlinPresetData("", 8, 0.5f, 4, 1.0f));
         toolkit.generateTerrain(onProgressUpdate);
         toolkit.textureTerrain(onProgressUpdate);
         toolkit.setFullHydraulicErosionPreset(new TerrainToolkit.fullHydraulicErosionPresetData("", 25, 0.01f, 0.5f, 0.06f, 0.6f));
